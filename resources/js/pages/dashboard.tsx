@@ -5,7 +5,11 @@ import { dashboard } from '@/routes';
 
 // Sample data for the design. Replace with real props from your controller.
 const kpis = [
-    { label: "Today's sales", value: '₱44,200.00', note: '+12.4% vs yesterday' },
+    {
+        label: "Today's sales",
+        value: '₱44,200.00',
+        note: '+12.4% vs yesterday',
+    },
     { label: 'Orders', value: '126', note: '+8 vs yesterday' },
     { label: 'Average order', value: '₱350.79', note: 'Same as yesterday' },
 ];
@@ -33,11 +37,41 @@ const payments = [
 ];
 
 const orders = [
-    { id: '#10482', time: '2:34 PM', pay: 'Cash', status: 'Paid', total: '₱385.00' },
-    { id: '#10481', time: '2:29 PM', pay: 'E-wallet', status: 'Paid', total: '₱620.00' },
-    { id: '#10480', time: '2:21 PM', pay: 'Card', status: 'Refunded', total: '₱145.00' },
-    { id: '#10479', time: '2:12 PM', pay: 'Cash', status: 'Paid', total: '₱275.00' },
-    { id: '#10478', time: '2:05 PM', pay: 'E-wallet', status: 'Pending', total: '₱910.00' },
+    {
+        id: '#10482',
+        time: '2:34 PM',
+        pay: 'Cash',
+        status: 'Paid',
+        total: '₱385.00',
+    },
+    {
+        id: '#10481',
+        time: '2:29 PM',
+        pay: 'E-wallet',
+        status: 'Paid',
+        total: '₱620.00',
+    },
+    {
+        id: '#10480',
+        time: '2:21 PM',
+        pay: 'Card',
+        status: 'Refunded',
+        total: '₱145.00',
+    },
+    {
+        id: '#10479',
+        time: '2:12 PM',
+        pay: 'Cash',
+        status: 'Paid',
+        total: '₱275.00',
+    },
+    {
+        id: '#10478',
+        time: '2:05 PM',
+        pay: 'E-wallet',
+        status: 'Pending',
+        total: '₱910.00',
+    },
 ];
 
 const topProducts = [
@@ -157,7 +191,10 @@ export default function Dashboard() {
                         </CardHeader>
                         <CardContent className="flex flex-col gap-4">
                             {payments.map((p) => (
-                                <div key={p.label} className="flex flex-col gap-1.5">
+                                <div
+                                    key={p.label}
+                                    className="flex flex-col gap-1.5"
+                                >
                                     <div className="flex justify-between text-sm">
                                         <span>{p.label}</span>
                                         <span className="font-semibold">
@@ -189,17 +226,29 @@ export default function Dashboard() {
                             <table className="w-full min-w-[460px] border-collapse text-sm">
                                 <thead>
                                     <tr className="text-left text-[13px] text-muted-foreground">
-                                        <th className="py-2 pr-2 font-semibold">Order</th>
-                                        <th className="p-2 font-semibold">Time</th>
-                                        <th className="p-2 font-semibold">Payment</th>
-                                        <th className="p-2 font-semibold">Status</th>
-                                        <th className="py-2 pl-2 text-right font-semibold">Total</th>
+                                        <th className="py-2 pr-2 font-semibold">
+                                            Order
+                                        </th>
+                                        <th className="p-2 font-semibold">
+                                            Time
+                                        </th>
+                                        <th className="p-2 font-semibold">
+                                            Payment
+                                        </th>
+                                        <th className="p-2 font-semibold">
+                                            Status
+                                        </th>
+                                        <th className="py-2 pl-2 text-right font-semibold">
+                                            Total
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {orders.map((o) => (
                                         <tr key={o.id} className="border-t">
-                                            <td className="py-3 pr-2 font-semibold">{o.id}</td>
+                                            <td className="py-3 pr-2 font-semibold">
+                                                {o.id}
+                                            </td>
                                             <td className="p-3">{o.time}</td>
                                             <td className="p-3">{o.pay}</td>
                                             <td className="p-3">

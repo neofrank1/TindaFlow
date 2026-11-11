@@ -133,6 +133,93 @@
     --sidebar-ring: oklch(0.74 0.1 235);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Landing page animations. Use with motion-reduce:animate-none. */
+@theme {
+    --animate-float: float 4s ease-in-out infinite;
+    --animate-pulse-ring: pulse-ring 2s ease-in-out infinite;
+    --animate-pop: pop 0.3s ease-out;
+    --animate-slide-in: slide-in 0.3s ease-out both;
+    --animate-fade-up: fade-up 0.7s ease-out both;
+    --animate-word-in: word-in 0.45s ease-out both;
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes pulse-ring {
+        0%,
+        100% {
+            box-shadow: 0 0 0 0
+                color-mix(in oklab, var(--primary) 45%, transparent);
+        }
+        50% {
+            box-shadow: 0 0 0 12px
+                color-mix(in oklab, var(--primary) 0%, transparent);
+        }
+    }
+
+    @keyframes pop {
+        0% {
+            transform: scale(0.4);
+        }
+        70% {
+            transform: scale(1.25);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            transform: translateX(-16px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes word-in {
+        from {
+            opacity: 0;
+            transform: translateY(0.35em);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 @layer base {
     * {
         @apply border-border;
