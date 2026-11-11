@@ -1,5 +1,5 @@
-import { Link } from '@inertiajs/react';
-import { LayoutGrid } from 'lucide-react';
+import { Link, usePage } from '@inertiajs/react';
+import { LayoutGrid, ShieldCheck } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -21,9 +21,19 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Superadmin',
+        href: '/superadmin/login',
+        icon: ShieldCheck,
+    },
 ];
 
 export function AppSidebar() {
+    const { auth } = usePage().props;
+    const navItems = auth.user?.is_superadmin
+        ? mainNavItems
+        : mainNavItems.filter((item) => item.title !== 'Superadmin');
+
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -39,7 +49,7 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain items={navItems} />
             </SidebarContent>
 
             <SidebarFooter>

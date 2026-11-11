@@ -104,22 +104,6 @@ const plans = [
         cta: 'Start 14-day free trial',
         popular: true,
     },
-    {
-        id: 'enterprise',
-        name: 'Enterprise',
-        monthly: 2499,
-        yearly: 1999,
-        blurb: 'For chains and large-scale operations',
-        features: [
-            'Unlimited branches',
-            'Everything in Pro',
-            'API access',
-            'Priority support',
-            'Custom integrations',
-        ],
-        cta: 'Contact sales',
-        popular: false,
-    },
 ];
 
 const focusRing =
@@ -526,13 +510,9 @@ export default function Welcome() {
                         </div>
                     </Reveal>
 
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
                         {plans.map((plan, i) => {
                             const price = yearly ? plan.yearly : plan.monthly;
-                            const href =
-                                plan.id === 'enterprise'
-                                    ? SALES_HREF
-                                    : startHref;
 
                             return (
                                 <Reveal
@@ -600,7 +580,7 @@ export default function Welcome() {
                                             ))}
                                         </ul>
                                         <Link
-                                            href={href}
+                                            href={startHref}
                                             className={cn(
                                                 'inline-flex min-h-12 items-center justify-center rounded-xl text-sm font-semibold transition-colors',
                                                 focusRing,
