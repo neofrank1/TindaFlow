@@ -23,7 +23,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Superadmin',
-        href: '/superadmin/login',
+        href: '/superadmin',
         icon: ShieldCheck,
     },
 ];
