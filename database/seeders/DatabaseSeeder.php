@@ -21,5 +21,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Creates the static superadmin when SUPERADMIN_EMAIL and SUPERADMIN_PASSWORD are set.
+        $this->call(SuperadminSeeder::class);
     }
 }
